@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head'); %>
+  </head>
+  <body>
+    <header><%- include('../partials/gameHeaders'); %></header>
+
+    <main>
+      <div class="container2 single-product">
+        <div class="row">
+          <div class="col-2">
+            <img src="images/dualshock4.jpg" width="100%" />
+            <div class="small-img-row">
+              <div class="small-img-col">
+                <img src="" />
+              </div>
+            </div>
+          </div>
+          <div class="col-2">
+            <p>Gaming Accessories</p>
+            <h1>Dual Shock 4 Controller</h1>
+            <h4>Rp 690.000</h4>
+            <!-- <select>
+              <option>Select Edition</option>
+              <option>Standard</option>
+              <option>Deluxe</option>
+            </select> -->
+            <button class="btn" onclick="addToCart()">Add to Cart</button>
+
+            <h3>Game Detail<i class="fa fa-indent"></i></h3>
+            <br />
+            <p>
+              The DualShock 4 (CUH-ZCT1 or CUH-ZCT2) is the PlayStation 4's
+              controller. It has several new features from DualShock 3. One new
+              feature is a built-in two-point capacitive touch pad on the front
+              of the controller, which can be clicked.
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer><%- include('../partials/footer'); %></footer>
+    <script>
+      function addToCart() {
+        const itemData = {
+          name: "Dual Shock 4 Controller",
+          price: 690000,
+          count: 1,
+          pictureLink: "images/dualshock4.jpg",
+        };
+
+        fetch("http://localhost:8001/cart", {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(itemData),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log("Success:", data);
+            window.location.href = "/cart"; // Redirect to /cart after successful PUT request
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+      }
+    </script>
+  </body>
+</html>

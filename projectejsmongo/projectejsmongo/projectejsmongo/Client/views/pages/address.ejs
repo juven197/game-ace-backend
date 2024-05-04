@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/addressHead'); %>
+  </head>
+  <body>
+    <header><%- include('../partials/addressHeaders'); %></header>
+
+    <main>
+      <div class="acc-pg" ng-app="Address" ng-controller="myCtrl">
+        <div class="container">
+          <div class="row">
+            <div class="col-2">
+              <img
+                src="https://pyxis.nymag.com/v1/imgs/cbf/4a2/ec7456fedf57d61fc8e52cb51c3acb47dd-video-game-consoles-for-you-lede.2x.rsocial.w600.jpg"
+                width="100%"
+              />
+            </div>
+            <div class="col-2">
+              <div class="form-container">
+                <div class="form--btn">
+                  <span onclick="">Enter Your Address</span>
+                  <hr id="Indicator" />
+                </div>
+                <div class="container3">
+                  <div class="con4">
+                    <input
+                      type="text"
+                      placeholder="Name of Addressee"
+                      ng-model="line_1"
+                      value="Sam"
+                    />
+                    <input
+                      type="text"
+                      placeholder="Room No.,Building No."
+                      ng-model="line_2"
+                      value="12,A Building"
+                    />
+                    <input
+                      type="text"
+                      placeholder="Name of Locality"
+                      ng-model="line_3"
+                      value="Star Society,Byculla"
+                    />
+                    <input
+                      type="text"
+                      placeholder="City,State"
+                      ng-model="line_4"
+                      value="Mumbai,Maharashtra"
+                    />
+                    <input
+                      type="text"
+                      placeholder="Pincode"
+                      ng-model="line_5"
+                      value="400008"
+                    />
+                    <button type="submit" class="btn" onclick="show()">
+                      Check Address
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <br />
+          <br />
+          <br />
+          <br />
+          <div class="row">
+            <div class="col-2">
+              <div class="container5 hidden" id="con">
+                <span> Your Products will be delivered to</span>
+                <hr id="Indicator2" />
+                <br />
+                {{ line_1 }}<br />{{ line_2 }}<br />{{ line_3 }}<br />{{ line_4
+                }}<br />{{ line_5 }}<br />{{ line_6 }}
+                <hr id="Indicator2" />
+                <span> Thank You For Shopping</span>
+              </div>
+            </div>
+            <!-- <div class="col-2">
+                    <div class="forimage">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-0nxb_xfg4mT9--Tbd1KRerjUF6UTbdu4aA&usqp=CAU"> 
+                    </div>
+                </div> -->
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer><%- include('../partials/addressFooter'); %></footer>
+  </body>
+</html>

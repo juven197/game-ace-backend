@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!DOCTYPE html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend+Mega&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="store.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>Login Page</title>
+    <script type="text/javascript"></script>
+  </head>
+  <body>
+    <!-- header -->
+    <div class="container">
+      <div class="navbar">
+        <div class="logo">
+          <a href="/"
+            ><img
+              src="icon.png"
+            />
+        </div>
+        <nav>
+          <ul id="MenuItems">
+            <li><a href="/">Home</a></li>
+            <li><a href="/ps4">Playstation</a></li>
+            <li><a href="/xbox">Xbox</a></li>
+            <li><a href="/nintendo">Nintendo</a></li>
+            <li><a href="/pc">PC</a></li>
+            <li><a href="/login">Sign Up/In</a></li>
+          </ul>
+        </nav>
+        <a href="/cart"
+          ><img src="images/cart.png" width="30px" height="30px"
+        /></a>
+        <img src="menu.png" class="menu-icon" onclick="menutoggle()" />
+      </div>
+    </div>
+    <main>
+      <!-- acc page-->
+      <div class="acc-pg">
+        <div class="container">
+          <div class="row">
+            <div class="col-2">
+              <img src="images/ollll.webp" width="100%" />
+            </div>
+            <div class="col-2">
+              <div class="form-container">
+                <div class="form--btn">
+                  <span onclick="login()">Login</span>
+                  <span onclick="register()">Register</span>
+                  <hr id="Indicator" />
+                </div>
+                <form id="LoginForm" action="">
+                  <input type="text" placeholder="Username" />
+                  <input type="password" placeholder="Password" />
+                  <button type="submit" class="btn">Login</button>
+                  <a href="">Forgot password</a>
+                </form>
+
+                <form
+                  id="RegForm"
+                  name="contactForm"
+                  onsubmit="return validateForm()"
+                >
+                  <input type="text" placeholder="Username" name="name" />
+                  <div class="error" id="nameErr"></div>
+                  <input type="email" placeholder="Email" name="email" />
+                  <div class="error" id="emailErr"></div>
+                  <input
+                    type="password"
+                    placeholder="Password"
+                    name="password"
+                  />
+                  <div class="error" id="passwordErr"></div>
+                  <button type="submit" class="btn">Register</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer><%- include('../partials/loginFooter'); %></footer>
+  </body>
+</html>

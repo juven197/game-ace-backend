@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head'); %>
+  </head>
+  <body>
+    <header><%- include('../partials/gameHeaders'); %></header>
+
+    <main>
+      <div class="container2 single-product">
+        <div class="row">
+          <div class="col-2">
+            <img src="images/bloodborne.png" width="100%" />
+            <div class="small-img-row">
+              <div class="small-img-col">
+                <img src="" />
+              </div>
+            </div>
+          </div>
+          <div class="col-2">
+            <p>PS 4 Games</p>
+            <h1>Bloodborne</h1>
+            <h4>Rp 260.000</h4>
+            <!-- <select>
+              <option>Select Edition</option>
+              <option>Standard</option>
+              <option>Deluxe</option>
+            </select> -->
+            <button class="btn" onclick="addToCart()">Add to Cart</button>
+            <h3>Game Detail<i class="fa fa-indent"></i></h3>
+            <br />
+            <p>
+              Bloodborne follows the player's character, a Hunter, through the
+              decrepit Gothic, Victorian-era–inspired city of Yharnam, whose
+              inhabitants are afflicted with a blood-borne disease which
+              transforms the residents, called Yharnamites, into horrific
+              beasts.
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer><%- include('../partials/footer'); %></footer>
+    <script>
+      function addToCart() {
+        const itemData = {
+          name: "Bloodborne",
+          price: 260000,
+          count: 1,
+          pictureLink: "images/bloodborne.png",
+        };
+
+        fetch("http://localhost:8001/cart", {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(itemData),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log("Success:", data);
+            window.location.href = "/cart"; // Redirect to /cart after successful PUT request
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+      }
+    </script>
+  </body>
+</html>

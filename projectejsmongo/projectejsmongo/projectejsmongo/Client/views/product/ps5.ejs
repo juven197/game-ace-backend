@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head'); %>
+  </head>
+  <body>
+    <header><%- include('../partials/gameHeaders'); %></header>
+
+    <main>
+      <div class="container2 single-product">
+        <div class="row">
+          <div class="col-2">
+            <img src="images/ps5.jpg" width="100%" />
+            <div class="small-img-row">
+              <div class="small-img-col">
+                <img src="" />
+              </div>
+            </div>
+          </div>
+          <div class="col-2">
+            <p>PS4 Exclusive</p>
+            <h1>PS 5</h1>
+            <h4>Rp 6.549.000</h4>
+            <!-- <select>
+              <option>Select Edition</option>
+              <option>Standard</option>
+              <option>Deluxe</option>
+            </select> -->
+            <button class="btn" onclick="addToCart()">Add to Cart</button>
+
+            <h3>Console details<i class="fa fa-indent"></i></h3>
+            <br />
+            <p>
+              The PlayStation 5 (PS5) is a home video game console developed by
+              Sony Interactive Entertainment. It was announced as the successor
+              to the PlayStation 4 in April 2019, was launched on November 12,
+              2020, in Australia, Japan, New Zealand, North America, and South
+              Korea, and was released worldwide one week later.
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer><%- include('../partials/footer'); %></footer>
+    <script>
+      function addToCart() {
+        const itemData = {
+          name: "PS 5",
+          price: 6549000,
+          count: 1,
+          pictureLink: "images/ps5.jpg",
+        };
+
+        fetch("http://localhost:8001/cart", {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(itemData),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log("Success:", data);
+            window.location.href = "/cart"; // Redirect to /cart after successful PUT request
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head'); %>
+  </head>
+  <body>
+    <header><%- include('../partials/gameHeaders'); %></header>
+
+    <main>
+      <div class="container2 single-product">
+        <div class="row">
+          <div class="col-2">
+            <img src="images/xboxseriesx.jpg" width="100%" />
+            <div class="small-img-row">
+              <div class="small-img-col">
+                <img src="" />
+              </div>
+            </div>
+          </div>
+          <div class="col-2">
+            <p>Console Exclusive</p>
+            <h1>XBOX Series X</h1>
+            <h4>Rp 5.925.000</h4>
+            <!-- <select>
+              <option>Select Edition</option>
+              <option>Standard</option>
+              <option>Deluxe</option>
+            </select> -->
+            <button class="btn" onclick="addToCart()">Add to Cart</button>
+            <h3>Console details<i class="fa fa-indent"></i></h3>
+            <br />
+            <p>
+              The Xbox Series X is intended to render games at 4K resolution at
+              60 frames per second, and can support up to 120 frames per second
+              and can render up to 8K resolution. The Xbox Series X's console
+              form is designed to be unobtrusive and minimalistic.
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer><%- include('../partials/footer'); %></footer>
+    <script>
+      function addToCart() {
+        const itemData = {
+          name: "Console Exclusive",
+          price: 5925000,
+          count: 1,
+          pictureLink: "images/xboxseriesx.jpg",
+        };
+
+        fetch("http://localhost:8001/cart", {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(itemData),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log("Success:", data);
+            window.location.href = "/cart"; // Redirect to /cart after successful PUT request
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head'); %>
+  </head>
+  <body>
+    <header><%- include('../partials/gameHeaders'); %></header>
+
+    <main>
+      <div class="container2 single-product">
+        <div class="row">
+          <div class="col-2">
+            <img src="images/gowww.jpg" width="100%" />
+            <div class="small-img-row">
+              <div class="small-img-col">
+                <img src="" />
+              </div>
+            </div>
+          </div>
+          <div class="col-2">
+            <p>PS4 Exclusive</p>
+            <h1>God Of War</h1>
+            <h4>Rp 380.000</h4>
+            <!-- <select>
+              <option>Select Edition</option>
+              <option>Standard</option>
+              <option>Deluxe</option>
+            </select> -->
+            <button class="btn" onclick="addToCart()">Add to Cart</button>
+            <h3>Game Detail<i class="fa fa-indent"></i></h3>
+            <br />
+            <p>
+              God of War is a third-person action-adventure video game. It
+              features an over-the-shoulder free camera. Cinematographically,
+              the game is presented in a continuous shot, with no camera cuts or
+              loading screens.
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer><%- include('../partials/footer'); %></footer>
+    <script>
+      function addToCart() {
+        const itemData = {
+          name: "God of War",
+          price: 380000,
+          count: 1,
+          pictureLink: "images/gowww.jpg",
+        };
+
+        fetch("http://localhost:8001/cart", {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(itemData),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log("Success:", data);
+            window.location.href = "/cart"; // Redirect to /cart after successful PUT request
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+      }
+    </script>
+  </body>
+</html>

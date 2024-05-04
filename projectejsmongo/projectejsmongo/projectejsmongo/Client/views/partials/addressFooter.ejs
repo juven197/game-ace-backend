@@ -1,0 +1,91 @@
+<!----footer------>
+<div class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="footer-col-1">
+        <h3>Download Our App</h3>
+        <p>Available on Apple App Store and Google Play</p>
+        <div class="app-logo">
+          <img src="images/appstore.png" />
+          <img src="images/gplay.png" />
+        </div>
+      </div>
+
+      <div class="footer-col-3">
+        <h3>Information</h3>
+        <ul>
+          <li>About Us</li>
+          <li>Return Policy</li>
+          <li>Customer Service</li>
+          <li>Locate store near you</li>
+        </ul>
+      </div>
+      <div class="footer-col-4">
+        <h3>By</h3>
+        <ul>
+          <li>Steve Carindra</li>
+          <li>Juventia Agnecia</li>
+          <li>Nehemia Charlotte Lim</li>
+        </ul>
+      </div>
+    </div>
+    <hr />
+    <p class="copyright">Copyright</p>
+  </div>
+</div>
+
+<!-- script for menu -->
+<script>
+  var MenuItems = document.getElementById("MenuItems");
+
+  MenuItems.style.maxHeight = "0px";
+
+  function menutoggle() {
+    if (MenuItems.style.maxHeight == "0px") {
+      MenuItems.style.maxHeight == "200px";
+    } else {
+      MenuItems.style.maxHeight == "0px";
+    }
+  }
+</script>
+
+<!-- controller script -->
+<script>
+  var app = angular.module("Address", []);
+  app.controller("myCtrl", function ($scope) {
+    $scope.line_1 = "";
+    $scope.line_2 = "";
+    $scope.line_3 = "";
+    $scope.line_4 = "";
+    $scope.line_5 = "";
+    $scope.line_6 = "";
+  });
+</script>
+<!-- script for menu -->
+<script language="JavaScript">
+  var MenuItems = document.getElementById("MenuItems");
+
+  MenuItems.style.maxHeight = "0px";
+  function menutoggle() {
+    var MenuItems = document.getElementById("MenuItems");
+    if (MenuItems.style.maxHeight == "0px") {
+      MenuItems.style.maxHeight = "200px";
+    } else {
+      MenuItems.style.maxHeight = "0px";
+    }
+  }
+</script>
+
+<script>
+  function show() {
+    var ele = document.getElementById("con");
+    console.log(ele.className);
+    if (ele.className == "container5 hidden ng-binding") {
+      ele.className = "container5";
+      console.log(ele.className);
+    } else {
+      ele.className = "container5 hidden ng-binding";
+      console.log(ele.className);
+    }
+  }
+</script>
